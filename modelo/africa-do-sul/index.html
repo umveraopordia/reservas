@@ -1,0 +1,451 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body><title>Reserva Ana e Pedro · Modelo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: kit de mídia África do Sul em versão web — fundo verde-mata, títulos em serifa amarela, rótulos em Bebas, cartões com filete magenta; capa com foto, rota, hotéis com vouchers, voos, traslados, roteiro em 2 capítulos, documentos, contato */
+:root{
+  --verde:#363C38; --verde2:#2C312D; --verde3:#41483F;
+  --magenta:#941C6F; --magenta-hi:#C0478F;
+  --creme:#FBF6E9; --creme-2:#D8D2C2; --amarelo:#F7EFA3;
+  --caixa:#EEE8DD; --txt:#2F332F; --linha:rgba(251,246,233,.14);
+  --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --bebas:"Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --sans:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--verde);color:var(--creme);font-family:var(--sans);font-size:15px;line-height:1.6;margin:0}
+a{color:inherit}
+.wrap{max-width:880px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;text-wrap:balance;margin:0;line-height:1}
+.eyb{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo)}
+.bebas{font-family:var(--bebas);letter-spacing:.02em;line-height:.95}
+.muted{color:var(--creme-2)}
+
+/* Capa */
+.hero{position:relative;overflow:hidden}
+.hero img.bg{display:block;width:100%;height:min(78vh,640px);min-height:440px;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(32,36,33,.35) 0%,rgba(32,36,33,.12) 38%,rgba(54,60,56,.92) 92%,var(--verde) 100%)}
+.tab{position:absolute;top:24px;right:0;z-index:2;background:var(--magenta);color:var(--creme);border-radius:60px 0 0 60px;padding:6px 18px 6px 6px;display:flex;align-items:center;gap:10px;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.25}
+.tab img{width:clamp(48px,9vw,60px);height:auto;flex:none;display:block}
+.tab b{display:block;font-family:var(--bebas);font-weight:400;font-size:clamp(18px,3vw,22px);letter-spacing:.04em;line-height:1}
+.hero-text{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:center}
+@media (max-width:620px){.hero img.bg{height:58vh;min-height:390px;max-height:470px}.hero-text .wrap{padding-bottom:18px}}
+.hero-eyb{margin-top:14px;font-size:13px;letter-spacing:.24em}
+.hero-text .wrap{padding-bottom:26px}
+.hero h1{font-size:clamp(64px,13vw,132px);color:var(--amarelo);line-height:.88}
+.hero .who{font-family:var(--serif);font-size:clamp(28px,5vw,44px);margin-top:10px}
+.hero .when{margin-top:8px;font-size:14px;font-weight:500;letter-spacing:.04em}
+
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:8px}
+.fact{background:var(--verde2);border-radius:14px;padding:16px 18px}
+.fact b{display:block;font-family:var(--bebas);font-weight:400;font-size:44px;line-height:.9;color:var(--amarelo)}
+.fact span{font-size:12px;color:var(--creme-2)}
+@media (max-width:620px){.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.welcome{margin-top:44px;max-width:60ch}
+.welcome h2{font-size:clamp(34px,6vw,52px);color:var(--amarelo);font-style:italic}
+.welcome p{margin:14px 0 0}
+
+section{margin-top:72px}
+.sh{margin-bottom:24px}
+.sh h2{font-size:clamp(40px,7vw,64px);color:var(--amarelo)}
+.sh .eyb{display:block;margin-bottom:6px}
+.sh p{margin:10px 0 0;color:var(--creme-2);max-width:60ch}
+
+/* Rota */
+.route{list-style:none;margin:0;padding:0 0 6px;display:flex;overflow-x:auto}
+.route li{flex:1 0 112px;position:relative;padding-top:26px;min-width:0}
+.route li::before{content:"";position:absolute;top:8px;left:0;right:0;height:2px;background:var(--verde3)}
+.route li:last-child::before{display:none}
+.route li::after{content:"";position:absolute;top:2px;left:0;width:14px;height:14px;border-radius:50%;background:var(--amarelo)}
+.route .n{font-family:var(--bebas);font-size:22px;color:var(--amarelo)}
+.route .p{font-family:var(--serif);font-size:22px;line-height:1.05;padding-right:10px}
+.route .d{font-size:12px;color:var(--creme-2)}
+.route li.end::after{background:transparent;border:2px solid var(--amarelo)}
+
+/* Hotéis */
+.hotels{display:flex;flex-direction:column;gap:14px}
+.hotel{background:var(--verde2);border-left:6px solid var(--magenta);border-radius:0 16px 16px 0;padding:20px clamp(18px,3.5vw,26px)}
+.hotel .top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px}
+.hotel h3{font-size:clamp(28px,5vw,36px);line-height:1.05}
+.hotel .addr{display:inline-block;margin-top:6px;font-size:13px;color:var(--creme-2);text-decoration:none;border-bottom:1px solid var(--linha)}
+.hotel .addr:hover,.hotel .addr:focus-visible{color:var(--amarelo);border-color:var(--amarelo)}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 18px;margin-top:16px;padding-top:14px;border-top:1px solid var(--linha)}
+.meta small{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--creme-2)}
+.meta .v{font-family:var(--bebas);font-size:26px;letter-spacing:.03em;line-height:1.05;color:var(--amarelo)}
+.meta .v i{font-style:normal;font-family:var(--sans);font-size:12px;font-weight:600;color:var(--creme);letter-spacing:0;margin-left:4px}
+.meta .t{font-size:14px;font-weight:500;line-height:1.35;padding-top:3px}
+.meta .w2{grid-column:span 2}
+@media (max-width:600px){.meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.pill{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--amarelo);color:var(--amarelo);border-radius:60px;padding:8px 16px;font-size:13px;font-weight:700;text-decoration:none;white-space:nowrap;transition:background .2s,color .2s}
+.pill:hover,.pill:focus-visible{background:var(--amarelo);color:var(--verde2)}
+.pill.solid{background:var(--magenta);border-color:var(--magenta);color:var(--creme)}
+.pill.solid:hover,.pill.solid:focus-visible{background:var(--magenta-hi);border-color:var(--magenta-hi);color:var(--creme)}
+.pill:focus-visible{outline:2px solid var(--creme);outline-offset:2px}
+/* Voos e traslados */
+.cards{display:flex;flex-direction:column;gap:14px}
+.gcard{border-left:6px solid var(--magenta);background:var(--verde2);padding:18px 22px;border-radius:0 14px 14px 0;display:grid;grid-template-columns:86px minmax(0,1fr) auto;gap:18px;align-items:center}
+.gcard .date{font-family:var(--bebas);font-size:30px;line-height:.9;color:var(--amarelo)}
+.gcard .date small{display:block;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--creme-2)}
+.gcard h3{font-size:28px;line-height:1.05}
+.gcard p{margin:4px 0 0;font-size:13px;color:var(--creme-2)}
+.gcard .time{font-family:var(--bebas);font-size:24px;letter-spacing:.04em;color:var(--creme)}
+@media (max-width:600px){.gcard{grid-template-columns:minmax(0,1fr);gap:8px}.gcard .date{display:flex;align-items:baseline;gap:8px}.gcard .date small{display:inline}}
+.foot{font-size:12px;color:var(--creme-2);margin-top:12px}
+
+/* Roteiro */
+.chapter + .chapter{margin-top:48px}
+.chapter-img{width:100%;max-width:100%;aspect-ratio:21/8;object-fit:cover;border-radius:18px;display:block}
+.chapter .ct{font-size:clamp(34px,5.5vw,46px);color:var(--amarelo);margin:20px 0 4px}
+.days{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column}
+.day{display:grid;grid-template-columns:96px minmax(0,1fr);gap:18px;padding:16px 0;border-top:1px solid var(--linha)}
+.day .dn{font-family:var(--bebas);font-size:24px;line-height:1;color:var(--amarelo)}
+.day .dn small{display:block;font-family:var(--sans);font-size:12px;font-weight:600;color:var(--creme-2);margin-top:4px;letter-spacing:.02em}
+.day h4{margin:0;font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.1}
+.day p{margin:4px 0 0;max-width:62ch}
+.day .sug{display:block;margin-top:6px;font-size:13px;color:var(--amarelo)}
+@media (max-width:520px){.day{grid-template-columns:minmax(0,1fr);gap:6px}.day .dn{display:flex;gap:10px;align-items:baseline}.day .dn small{margin:0}}
+
+/* Entrada */
+.entry{background:var(--caixa);color:var(--txt);border-radius:18px;padding:clamp(22px,4vw,32px)}
+.entry .lab{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta)}
+.entry h3{font-size:clamp(30px,5vw,40px);margin:6px 0 10px;color:var(--txt)}
+.entry p{margin:0;max-width:62ch}
+.steps{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start;font-size:14px}
+.steps li::before{counter-increment:s;content:counter(s);font-family:var(--bebas);font-size:22px;line-height:1;width:30px;height:30px;border-radius:50%;background:var(--magenta);color:var(--creme);display:flex;align-items:center;justify-content:center;padding-top:3px}
+.entry .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.pill.dark{border-color:var(--txt);color:var(--txt)}
+.pill.dark:hover,.pill.dark:focus-visible{background:var(--txt);color:var(--caixa)}
+
+/* Detalhes */
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:640px){.two{grid-template-columns:minmax(0,1fr)}}
+.box{background:var(--caixa);color:var(--txt);border-radius:18px;padding:24px 26px}
+.box.dark{background:var(--verde2);color:var(--creme)}
+.box .lab{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta);margin-bottom:12px}
+.box.dark .lab{color:var(--amarelo)}
+ul.dots{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+ul.dots li{position:relative;padding-left:22px;font-size:14px}
+ul.dots li::before{content:"";position:absolute;left:2px;top:.5em;width:10px;height:10px;border-radius:50%;background:var(--magenta)}
+.box.dark ul.dots li::before{background:var(--amarelo)}
+.box.wide{grid-column:1 / -1}
+
+/* Documentos */
+.docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:600px){.docs{grid-template-columns:minmax(0,1fr)}}
+.doc{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;background:var(--verde2);text-decoration:none;transition:background .2s}
+.doc:hover,.doc:focus-visible{background:var(--verde3)}
+.doc:focus-visible{outline:2px solid var(--amarelo);outline-offset:2px}
+.doc svg{flex:none;color:var(--amarelo)}
+.doc b{display:block;font-weight:600;font-size:14px;line-height:1.3}
+.doc span{font-size:12px;color:var(--creme-2)}
+
+/* Contato */
+.contact{margin-top:80px;position:relative;border-radius:18px;overflow:hidden}
+.contact img{display:block;width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.contact::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(32,36,33,.86) 0%,rgba(32,36,33,.74) 60%,rgba(32,36,33,.6) 100%);z-index:1}
+.contact .in{position:relative;z-index:2;padding:clamp(28px,6vw,52px)}
+.contact h2{font-size:clamp(40px,7vw,64px);color:var(--amarelo);font-style:italic;max-width:14ch}
+.contact p{margin:12px 0 0;max-width:46ch}
+.wpp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:26px}
+@media (max-width:560px){.wpp{grid-template-columns:minmax(0,1fr)}}
+.wcard{background:rgba(44,49,45,.9);border-radius:14px;padding:16px 18px}
+.wcard.main{border:2px solid var(--amarelo)}
+.wcard small{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amarelo)}
+.wcard .who{font-family:var(--serif);font-size:24px;line-height:1.1;margin-top:2px}
+.wcard .num{font-family:var(--bebas);font-size:30px;letter-spacing:.04em;user-select:all}
+.wcard .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.mini{font:inherit;font-size:12px;font-weight:700;border:2px solid var(--amarelo);background:transparent;color:var(--amarelo);border-radius:40px;padding:6px 14px;cursor:pointer;text-decoration:none}
+.mini.solid{background:var(--magenta);border-color:var(--magenta);color:var(--creme)}
+.mini:hover,.mini:focus-visible{background:var(--amarelo);border-color:var(--amarelo);color:var(--verde2)}
+
+footer{text-align:center;font-size:12px;color:var(--creme-2);padding-block:44px 52px}
+footer img{width:60px;display:block;margin:0 auto 10px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="hero">
+  <img class="bg" src="/assets/africa-do-sul/capa.jpg" alt="Girafas ao pôr do sol na savana">
+  <div class="tab"><img src="/assets/uvpd/logo.png" alt="Um Verão por Dia"><span>Reserva<b>Confirmada</b></span></div>
+  <div class="hero-text"><div class="wrap">
+    <h1>África<br>do Sul</h1>
+    <div class="eyb hero-eyb">Roteiro completo</div>
+    <div class="who">Ana e Pedro</div>
+    <div class="when">14 a 24 de outubro de 2026 · 2 adultos</div>
+  </div></div>
+</div>
+
+<main class="wrap">
+  <div class="facts">
+    <div class="fact"><b id="countdown">—</b><span id="countdown-label">dias para o embarque</span></div>
+    <div class="fact"><b>10</b><span>noites</span></div>
+    <div class="fact"><b>7</b><span>hospedagens</span></div>
+    <div class="fact"><b>4</b><span>noites de safári</span></div>
+  </div>
+
+  <div class="welcome">
+    <h2>Ana e Pedro, está tudo pronto.</h2>
+    <p>Aqui vocês encontram cada detalhe da viagem: hotéis com endereço e voucher, voos, traslados e o roteiro dia a dia. Guardem este link, porque ele serve para consultar antes e durante a viagem. Qualquer dúvida, a gente está a uma mensagem de distância.</p>
+  </div>
+
+  <section id="rota">
+    <div class="sh"><span class="eyb">10 noites · 7 paradas</span><h2>A rota</h2></div>
+    <ol class="route">
+      <li><div class="n">1 noite</div><div class="p">Joanesburgo</div><div class="d">14–15/10</div></li>
+      <li><div class="n">2 noites</div><div class="p">Karongwe</div><div class="d">15–17/10</div></li>
+      <li><div class="n">2 noites</div><div class="p">Kruger</div><div class="d">17–19/10</div></li>
+      <li><div class="n">1 noite</div><div class="p">Tsitsikamma</div><div class="d">19–20/10</div></li>
+      <li><div class="n">2 noites</div><div class="p">Knysna</div><div class="d">20–22/10</div></li>
+      <li><div class="n">1 noite</div><div class="p">Oudtshoorn</div><div class="d">22–23/10</div></li>
+      <li><div class="n">1 noite</div><div class="p">Hermanus</div><div class="d">23–24/10</div></li>
+      <li class="end"><div class="n">Chegada</div><div class="p">Cape Town</div><div class="d">24/10</div></li>
+    </ol>
+  </section>
+
+  <section id="hoteis">
+    <div class="sh"><span class="eyb">Onde vocês vão ficar</span><h2>Hospedagens</h2></div>
+    <div class="hotels" id="hotels"></div>
+  </section>
+  <section id="voos">
+    <div class="sh"><span class="eyb">Comprados por vocês</span><h2>Voos internos</h2></div>
+    <div class="cards">
+      <div class="gcard">
+        <div class="date">15 out<small>Quinta</small></div>
+        <div><h3>Joanesburgo → Hoedspruit</h3><p>Rumo ao safári. Na chegada, o traslado até o Becks já está incluído.</p></div>
+        <a class="pill" href="#exemplo" target="_blank" rel="noopener">Bilhete ↗</a>
+      </div>
+      <div class="gcard">
+        <div class="date">19 out<small>Segunda</small></div>
+        <div><h3>Nelspruit → Port Elizabeth</h3><p><span class="time">10:50 – 15:05</span></p></div>
+        <a class="pill" href="#exemplo" target="_blank" rel="noopener">Bilhete ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="traslados">
+    <div class="sh"><span class="eyb">Logística em terra</span><h2>Traslados e carro</h2></div>
+    <div class="cards">
+      <div class="gcard">
+        <div class="date">14 out<small>Quarta</small></div>
+        <div><h3>Aeroporto O.R. Tambo → hotel</h3><p>Shuttle gratuito do Southern Sun, 24 horas, a cada 15 minutos.</p></div>
+        <span></span>
+      </div>
+      <div class="gcard">
+        <div class="date">15 out<small>Quinta</small></div>
+        <div><h3>Aeroporto de Hoedspruit → Becks</h3><p>Ao sair do desembarque, haverá um motorista com placa com o nome de vocês ou do Karongwe Becks.</p></div>
+        <span class="eyb">Incluso</span>
+      </div>
+      <div class="gcard">
+        <div class="date">17 out<small>Sábado</small></div>
+        <div><h3>Becks → Leopard Sands</h3><p>Saída às 11h, com a EZ Shuttle.</p></div>
+        <span class="eyb">Incluso</span>
+      </div>
+      <div class="gcard">
+        <div class="date">19 out<small>Segunda</small></div>
+        <div><h3>Leopard Sands → aeroporto de Nelspruit</h3><p>Horário a confirmar.</p></div>
+        <span class="eyb">Incluso</span>
+      </div>
+      <div class="gcard">
+        <div class="date">19 out<small>Segunda</small></div>
+        <div><h3>Retirada do carro · Port Elizabeth</h3><p>Balcão da Europcar no saguão de desembarque do aeroporto, às 15h30. Toyota Corolla Quest ou similar, automático, proteção Plus sem franquia e km livre.</p></div>
+        <a class="pill" href="#exemplo" target="_blank" rel="noopener">Voucher ↗</a>
+      </div>
+      <div class="gcard">
+        <div class="date">26 out<small>Segunda</small></div>
+        <div><h3>Devolução do carro · Cape Town</h3><p>Às 10h, no aeroporto internacional de Cape Town.</p></div>
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="roteiro">
+    <div class="sh"><span class="eyb">11 dias</span><h2>Roteiro dia a dia</h2></div>
+
+    <div class="chapter">
+      <img class="chapter-img" src="/assets/africa-do-sul/karongwe.jpg" alt="Veículo de safári numa estrada de terra na savana">
+      <h3 class="ct">Joanesburgo e safári</h3>
+      <ol class="days">
+        <li class="day"><div class="dn">Dia 1<small>14/10</small></div><div><h4>Chegada em Joanesburgo</h4><p>Shuttle gratuito até o hotel · check-in</p></div></li>
+        <li class="day"><div class="dn">Dia 2<small>15/10</small></div><div><h4>Rumo ao safári</h4><p>Voo de Joanesburgo até Hoedspruit · traslado incluído até o Becks · check-in</p></div></li>
+        <li class="day"><div class="dn">Dia 3<small>16/10</small></div><div><h4>Safári em Karongwe</h4><p>Game drives ao amanhecer e no fim da tarde</p></div></li>
+        <li class="day"><div class="dn">Dia 4<small>17/10</small></div><div><h4>Rumo ao Kruger</h4><p>Check-out · traslado incluído até o Leopard Sands · check-in</p></div></li>
+        <li class="day"><div class="dn">Dia 5<small>18/10</small></div><div><h4>Safári no Parque Kruger</h4><p>Game drives dentro do parque</p></div></li>
+        <li class="day"><div class="dn">Dia 6<small>19/10</small></div><div><h4>Rumo à Garden Route</h4><p>Traslado incluído até o aeroporto de Nelspruit · voo até Port Elizabeth (10:50 – 15:05) · retirada do carro · estrada até Tsitsikamma (≈ 2h)</p></div></li>
+      </ol>
+    </div>
+
+    <div class="chapter">
+      <img class="chapter-img" src="/assets/africa-do-sul/cpt.jpg" alt="Vista aérea da costa da Cidade do Cabo">
+      <h3 class="ct">Garden Route e Hermanus</h3>
+      <ol class="days">
+        <li class="day"><div class="dn">Dia 7<small>20/10</small></div><div><h4>Tsitsikamma → Knysna</h4><p>Manhã livre · estrada até Knysna (≈ 1h)</p><span class="sug">Sugestão: ponte suspensa de Storms River Mouth</span></div></li>
+        <li class="day"><div class="dn">Dia 8<small>21/10</small></div><div><h4>Dia livre em Knysna</h4><span class="sug">Sugestão: mirante das Knysna Heads e passeio pela lagoa</span></div></li>
+        <li class="day"><div class="dn">Dia 9<small>22/10</small></div><div><h4>Knysna → Oudtshoorn</h4><p>Estrada (≈ 1h30)</p><span class="sug">Sugestão: Cango Caves, a poucos minutos do hotel</span></div></li>
+        <li class="day"><div class="dn">Dia 10<small>23/10</small></div><div><h4>Oudtshoorn → Hermanus</h4><p>Estrada (≈ 4h30, o trecho mais longo da viagem)</p></div></li>
+        <li class="day"><div class="dn">Dia 11<small>24/10</small></div><div><h4>Hermanus → Cape Town</h4><p>Manhã no Cliff Path, com avistamento de baleias · check-out · estrada até Cape Town (≈ 1h30). O carro fica com vocês até 26/10, com devolução às 10h no aeroporto de Cape Town.</p></div></li>
+      </ol>
+      <p class="foot">Tempos de estrada aproximados. Passeios sugeridos são opcionais e não estão inclusos.</p>
+    </div>
+  </section>
+
+  <section id="entrada">
+    <div class="sh"><span class="eyb">Obrigatório para cada viajante</span><h2>Para entrar na África do Sul</h2></div>
+    <div class="entry">
+      <div class="lab">Declaração online da Receita sul-africana (SARS)</div>
+      <h3>Traveller Declaration</h3>
+      <p>Desde julho de 2026, todo viajante que entra ou sai da África do Sul precisa preencher uma declaração online. É gratuita e cada um de vocês faz a sua.</p>
+      <ol class="steps">
+        <li><span><b>Na ida:</b> preencham no máximo 24 horas antes do embarque do último voo para a África do Sul. Se houver conexão, contem as 24 horas a partir desse último trecho.</span></li>
+        <li><span><b>Guardem a confirmação</b> que a SARS envia, no celular ou impressa, e sigam as orientações no desembarque em Joanesburgo.</span></li>
+        <li><span><b>Na volta:</b> façam uma nova declaração antes de sair do país, pelo mesmo site ou aplicativo.</span></li>
+      </ol>
+      <div class="actions">
+        <a class="pill solid" href="https://tools.sars.gov.za/sarsonlinequery/traveller" target="_blank" rel="noopener">Preencher a declaração ↗</a>
+        <a class="pill dark" href="https://www.sars.gov.za/travellerdeclaration/" target="_blank" rel="noopener">Instruções oficiais ↗</a>
+      </div>
+      <p class="foot" style="color:var(--txt);opacity:.75">Também dá para preencher pelo aplicativo SATMS (South African Traveller Management System), disponível na loja do celular. Se tiverem qualquer dúvida no preenchimento, chamem a gente.</p>
+    </div>
+  </section>
+
+  <section id="detalhes">
+    <div class="sh"><span class="eyb">Para consultar</span><h2>Detalhes</h2></div>
+    <div class="two">
+      <div class="box">
+        <div class="lab">Incluso</div>
+        <ul class="dots">
+          <li>10 noites de hospedagem, com os regimes indicados em cada hotel</li>
+          <li>Carro alugado de 19 a 26/10 (Port Elizabeth → aeroporto de Cape Town)</li>
+          <li>Transfers do safári</li>
+          <li>Assistência antes e durante a viagem</li>
+        </ul>
+      </div>
+      <div class="box dark">
+        <div class="lab">Não incluso</div>
+        <ul class="dots">
+          <li>Aéreos (os domésticos foram comprados por vocês)</li>
+          <li>Combustível e pedágios</li>
+          <li>Passeios opcionais, gorjetas e despesas pessoais</li>
+          <li>Seguro-viagem</li>
+        </ul>
+      </div>
+      <div class="box dark wide">
+        <div class="lab">Antes de embarcar</div>
+        <ul class="dots">
+          <li>A vacina da febre amarela é exigida. Levem o Certificado Internacional de Vacinação.</li>
+          <li>Preencham a declaração online da SARS (veja acima) até 24 horas antes do voo para a África do Sul.</li>
+          <li>Confiram previamente a documentação e as exigências do destino.</li>
+          <li>Deixem os vouchers desta página baixados no celular, para consultar sem internet.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="documentos">
+    <div class="sh"><span class="eyb">Para baixar</span><h2>Documentos</h2></div>
+    <div class="docs">
+      <a class="doc" href="#exemplo" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg><div><b>Voo Joanesburgo → Hoedspruit</b><span>PDF</span></div></a>
+      <a class="doc" href="#exemplo" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg><div><b>Voo Nelspruit → Port Elizabeth</b><span>Imagem</span></div></a>
+      <a class="doc" href="#exemplo" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg><div><b>Voucher Southern Sun O.R. Tambo</b><span>PDF</span></div></a>
+      <a class="doc" href="#exemplo" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg><div><b>Voucher Becks Safari Lodge</b><span>PDF</span></div></a>
+      <a class="doc" href="#exemplo" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg><div><b>Voucher Leopard Sands</b><span>PDF</span></div></a>
+      <a class="doc" href="#exemplo" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg><div><b>Vouchers dos hotéis da Garden Route</b><span>PDF</span></div></a>
+      <a class="doc" href="#exemplo" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 19h14"/></svg><div><b>Voucher do carro</b><span>PDF</span></div></a>
+    </div>
+  </section>
+
+  <div class="contact">
+    <img src="/assets/africa-do-sul/kruger.jpg" alt="">
+    <div class="in">
+      <div class="eyb">Durante toda a viagem</div>
+      <h2>A gente está com vocês</h2>
+      <p>Mudança de horário, dúvida ou imprevisto: falem direto com a gente pelo WhatsApp.</p>
+      <div class="wpp">
+        <div class="wcard main">
+          <small>Seu contato</small>
+          <div class="who">Natalia</div>
+          <div class="num">(21) 99752-8743</div>
+          <div class="row"><a class="mini solid" href="https://wa.me/5521997528743" target="_blank" rel="noopener">Abrir WhatsApp</a><button class="mini copy" type="button" id="copy-nat" data-copy="+55 21 99752-8743">Copiar</button></div>
+        </div>
+        <div class="wcard">
+          <small>Agência</small>
+          <div class="who">Um Verão por Dia</div>
+          <div class="num">(21) 97235-8917</div>
+          <div class="row"><a class="mini" href="https://wa.me/5521972358917" target="_blank" rel="noopener">Abrir WhatsApp</a><button class="mini copy" type="button" id="copy-uvpd" data-copy="+55 21 97235-8917">Copiar</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <img src="/assets/uvpd/logo.png" alt="">
+  Página de demonstração · dados fictícios<br>Um Verão por Dia · Ipanema, Rio de Janeiro<br>CNPJ 17.599.789/0001-41
+</footer>
+
+<script>
+(function(){
+
+  var HOTELS = [
+    {where:"Joanesburgo · Aeroporto O.R. Tambo", name:"Southern Sun O.R. Tambo", addr:"Airport Grounds, Jones Road, Gauteng", maps:"Southern Sun O.R. Tambo International Airport",
+     ci:"14 out", cit:"14h", co:"15 out", cot:"11h", room:"Superior King Room, cama king", board:"Café da manhã completo", res:"EX-00000",
+     voucher:"#exemplo"},
+    {where:"Safári · Reserva Privada Karongwe", name:"Becks Safari Lodge", addr:"Karongwe Private Game Reserve, R36, Hoedspruit", maps:"Becks Safari Lodge Karongwe Hoedspruit",
+     ci:"15 out", cit:"14h", co:"17 out", cot:"11h", room:"Quarto casal", board:"All inclusive · game drives diários", res:"",
+     voucher:"#exemplo"},
+    {where:"Safári · Parque Kruger", name:"Leopard Sands Kruger Park", addr:"R536 Kruger Gate, Skukuza Road, Mpumalanga", maps:"Leopard Sands Kruger Park Autograph Collection",
+     ci:"17 out", cit:"14h", co:"19 out", cot:"10h", room:"Suíte Superluxo com vista para o rio, cama king", board:"Pensão completa · game drives diários", res:"",
+     voucher:"#exemplo"},
+    {where:"Garden Route · Tsitsikamma", name:"The Fernery Lodge & Chalets", addr:"Forest Ferns Estate, Bluelilies Bush, Storms River", maps:"The Fernery Lodge and Chalets Storms River",
+     ci:"19 out", cit:"", co:"20 out", cot:"", room:"Chalé com cama king", board:"Café da manhã", res:"",
+     voucher:"#exemplo"},
+    {where:"Garden Route · Knysna", name:"The Lofts Boutique Hotel", addr:"The Boatshed, Long Street, Thesen Islands, Knysna", maps:"The Lofts Boutique Hotel Thesen Island Knysna",
+     ci:"20 out", cit:"", co:"22 out", cot:"", room:"Standard Room", board:"Café da manhã", res:"",
+     voucher:"#exemplo"},
+    {where:"Klein Karoo · Oudtshoorn", name:"Surval Boutique Olive Estate", addr:"R328 & Cango Caves Road, Oudtshoorn", maps:"Surval Boutique Olive Estate Oudtshoorn",
+     ci:"22 out", cit:"", co:"23 out", cot:"", room:"Honeymoon Suite", board:"Café da manhã", res:"",
+     voucher:"#exemplo"},
+    {where:"Walker Bay · Hermanus", name:"One Marine Drive Boutique Hotel", addr:"1 Marine Drive, Hermanus, Western Cape", maps:"One Marine Drive Boutique Hotel Hermanus",
+     ci:"23 out", cit:"14h", co:"24 out", cot:"11h", room:"Quarto Superior com vista para o mar, cama king", board:"Café da manhã", res:"",
+     voucher:"#exemplo"}
+  ];
+  var box = document.getElementById('hotels');
+  HOTELS.forEach(function(x){
+    var a = document.createElement('article'); a.className = 'hotel';
+    var t = function(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+    var top = t('div','top'); var left = t('div');
+    left.appendChild(t('div','eyb',x.where)); left.appendChild(t('h3',null,x.name));
+    var ad = t('a','addr',x.addr + ' ↗'); ad.href = 'https://www.google.com/maps?q=' + encodeURIComponent(x.maps); ad.target = '_blank'; ad.rel = 'noopener';
+    left.appendChild(ad); top.appendChild(left);
+    if (x.voucher){ var v = t('a','pill solid','Voucher ↗'); v.href = x.voucher; v.target = '_blank'; v.rel = 'noopener'; top.appendChild(v); }
+    a.appendChild(top);
+    var m = t('div','meta');
+    var cell = function(label, val, time, cls){ var c = t('div', cls||''); c.appendChild(t('small',null,label)); var vv = t('div','v',val); if (time){ vv.appendChild(t('i',null,time)); } c.appendChild(vv); return c; };
+    var txt = function(label, val, cls){ var c = t('div', cls||''); c.appendChild(t('small',null,label)); c.appendChild(t('div','t',val)); return c; };
+    m.appendChild(cell('Check-in', x.ci, x.cit)); m.appendChild(cell('Check-out', x.co, x.cot));
+    m.appendChild(txt('Quarto', x.room, 'w2'));
+    m.appendChild(txt('Regime', x.board, 'w2'));
+    if (x.res){ m.appendChild(cell('Nº da reserva', x.res, '', 'w2')); }
+    a.appendChild(m); box.appendChild(a);
+  });
+  var start = new Date(2026, 9, 14), end = new Date(2026, 9, 24);
+  var now = new Date(); now.setHours(0,0,0,0);
+  var el = document.getElementById('countdown'), lb = document.getElementById('countdown-label');
+  var d = Math.round((start - now) / 86400000);
+  if (d > 1) { el.textContent = d; lb.textContent = 'dias para o embarque'; }
+  else if (d === 1) { el.textContent = '1'; lb.textContent = 'dia para o embarque'; }
+  else if (now <= end) { el.textContent = 'Boa'; lb.textContent = 'viagem!'; }
+  else { el.textContent = '11'; lb.textContent = 'dias de viagem'; }
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click', function(){
+      var t = b.getAttribute('data-copy');
+      var ok = function(){ b.textContent = 'Copiado'; setTimeout(function(){ b.textContent = 'Copiar'; }, 1800); };
+      try { navigator.clipboard.writeText(t).then(ok, function(){ b.textContent = t; }); } catch(e){ b.textContent = t; }
+    });
+  });
+})();
+</script>
+</body></html>
